@@ -20,4 +20,14 @@ public class ToodeService implements IToodeService {
 
         return tooted;
     }
+
+    @Override
+    public void lisa(Toode toode) {
+        repository.save(toode);
+    }
+
+    @Override
+    public long kogus(){
+        return repository.count();
+    }
 }

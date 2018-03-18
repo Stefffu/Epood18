@@ -4,9 +4,14 @@
     <title>Koduleht</title>
 </head>
 <body>
-<h1>Tere tulemast!</h1>
+<h1>Tere tulemast e-poodi!</h1>
 
-<p>Click <a th:href="@{/hello}">here</a> to see a greeting.</p>
+<p>Meie poes on müügil [[${kogus}]] toodet.</p>
 <a href="Tooted">Näita tooteid</a>
+<a href="/form">Lisa tooteid juurde</a>
+
+<p id="komm" style="display:none">Tüng!</p>
+
+<button type="button" onclick="document.getElementById('komm').style.display='block'">Vajuta siia, saad kommi!</button>
 </body>
 </html>
