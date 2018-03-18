@@ -12,16 +12,16 @@ public class Toode {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
-    private String nimetus;
+    private String nimi;
     private String kirjeldus;
-    private float kaal;
-    private float hind;
-    private int kogus_laos;
+    private Float kaal;
+    private Float hind;
+    private Long kogus_laos;
 
     protected Toode() {}
 
-    public Toode(String nimetus, String kirjeldus, float kaal, float hind, int kogus_laos) {
-        this.nimetus = nimetus;
+    public Toode(String nimi, String kirjeldus, Float kaal, Float hind, Long kogus_laos) {
+        this.nimi = nimi;
         this.kirjeldus = kirjeldus;
         this.kaal = kaal;
         this.hind = hind;
@@ -36,12 +36,12 @@ public class Toode {
         this.id = id;
     }
 
-    public String getNimetus() {
-        return nimetus;
+    public String getNimi() {
+        return nimi;
     }
 
-    public void setNimetus(String nimetus) {
-        this.nimetus = nimetus;
+    public void setNimi(String nimi) {
+        this.nimi = nimi;
     }
 
     public String getKirjeldus() {
@@ -52,27 +52,27 @@ public class Toode {
         this.kirjeldus = kirjeldus;
     }
 
-    public float getKaal() {
+    public Float getKaal() {
         return kaal;
     }
 
-    public void setKaal(float kaal) {
+    public void setKaal(Float kaal) {
         this.kaal = kaal;
     }
 
-    public float getHind() {
+    public Float getHind() {
         return hind;
     }
 
-    public void setHind(float hind) {
+    public void setHind(Float hind) {
         this.hind = hind;
     }
 
-    public int getKogus_laos() {
+    public Long getKogus_laos() {
         return kogus_laos;
     }
 
-    public void setKogus_laos(int kogus_laos) {
+    public void setKogus_laos(Long kogus_laos) {
         this.kogus_laos = kogus_laos;
     }
 
@@ -80,7 +80,7 @@ public class Toode {
     public String toString() {
         return "Toode{" +
                 "id=" + id +
-                ", nimetus='" + nimetus + '\'' +
+                ", nimi='" + nimi + '\'' +
                 ", kirjeldus='" + kirjeldus + '\'' +
                 ", kaal=" + kaal +
                 ", hind=" + hind +
