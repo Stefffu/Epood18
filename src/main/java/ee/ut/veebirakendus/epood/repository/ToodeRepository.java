@@ -7,4 +7,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ToodeRepository extends CrudRepository<Toode, Long> {
 
+
 }

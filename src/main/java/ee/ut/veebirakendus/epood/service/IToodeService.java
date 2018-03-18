@@ -7,4 +7,6 @@ import java.util.List;
 public interface IToodeService {
 
     public List<Toode> findAll();
+    public void lisa(Toode toode);
+    public long kogus();
 }

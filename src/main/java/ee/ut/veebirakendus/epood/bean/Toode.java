@@ -10,7 +10,7 @@ import javax.persistence.Table;
 @Table(name = "Toode")
 public class Toode {
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
     private String nimi;
     private String kirjeldus;
@@ -18,7 +18,7 @@ public class Toode {
     private Float hind;
     private Long kogus_laos;
 
-    protected Toode() {}
+    public Toode() {}
 
     public Toode(String nimi, String kirjeldus, Float kaal, Float hind, Long kogus_laos) {
         this.nimi = nimi;
