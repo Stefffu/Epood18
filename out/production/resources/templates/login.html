@@ -3,6 +3,7 @@
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
     <title>Logi sisse </title>
+
 </head>
 <body>
 <div th:if="${param.error}">
@@ -10,11 +11,54 @@
 </div>
 <div th:if="${param.logout}">
     Sind on välja logitud
+
 </div>
-<form th:action="@{/login}" method="post">
-    <div><label> User Name : <input type="text" name="username"/> </label></div>
-    <div><label> Password: <input type="password" name="password"/> </label></div>
+<form id="login_form" th:action="@{/login}" method="post">
+    <div><label> User Name : <input type="text" name="username" id="username"/> </label></div>
+    <div><label> Password: <input type="password" name="password" id="password"/> </label></div>
     <div><input type="submit" value="Logi sisse"/></div>
 </form>
 </body>
+
+
+<div>
+    <div>
+    <meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id" content="13242957672-b3olsr9ghh291mvf8skfe61hdj64jl4p.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    </div>
+<div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+
+
+<script>
+    function onSignIn(googleUser) {
+        var profile = googleUser.getBasicProfile();
+        document.getElementById("username").value = "gmail";
+        document.getElementById("password").value = "password";
+        document.getElementById("login_form").submit();
+
+        console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+        console.log('Full Name: ' + profile.getName());
+        console.log('Given Name: ' + profile.getGivenName());
+        console.log('Family Name: ' + profile.getFamilyName());
+        console.log("Image URL: " + profile.getImageUrl());
+        console.log("Email: " + profile.getEmail());
+
+
+    };
+</script>
+
+<a href="#" onclick="signOut();">Sign out</a>
+<script>
+    function signOut() {
+        var auth2 = gapi.auth2.getAuthInstance();
+        auth2.signOut().then(function () {
+            console.log('User signed out.');
+        });
+    }
+</script>
+
+</div>
+
+
 </html>
