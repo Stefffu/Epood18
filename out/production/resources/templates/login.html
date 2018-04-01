@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
-<head>
+<head onload="signOut();">
     <title>Logi sisse </title>
 
 </head>
+
+
 <body>
 <div th:if="${param.error}">
     Vale kasutajanimi/parool
@@ -21,7 +23,7 @@
 </body>
 
 
-<div>
+<div >
     <div>
     <meta name="google-signin-scope" content="profile email">
     <meta name="google-signin-client_id" content="13242957672-b3olsr9ghh291mvf8skfe61hdj64jl4p.apps.googleusercontent.com">
@@ -33,6 +35,7 @@
 <script>
     function onSignIn(googleUser) {
         var profile = googleUser.getBasicProfile();
+
         document.getElementById("username").value = "gmail";
         document.getElementById("password").value = "password";
         document.getElementById("login_form").submit();
