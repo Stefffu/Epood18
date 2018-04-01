@@ -10,6 +10,9 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 
+import java.util.LinkedList;
+import java.util.List;
+
 @Configuration
 @EnableWebSecurity
 public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
@@ -28,6 +31,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll();
     }
 
+
     @Bean
     @Override
     public UserDetailsService userDetailsService() {
@@ -38,6 +42,19 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
                         .roles("USER")
                         .build();
 
-        return new InMemoryUserDetailsManager(user);
+        UserDetails gmail =
+                User.withDefaultPasswordEncoder()
+                        .username("gmail")
+                        .password("password")
+                        .roles("USER")
+                        .build();
+
+
+        InMemoryUserDetailsManager detailsManager = new InMemoryUserDetailsManager();
+        detailsManager.createUser(user);
+        detailsManager.createUser(gmail);
+        return detailsManager;
+
     }
+
 }

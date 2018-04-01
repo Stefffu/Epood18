@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <title>Koduleht</title>
+</head>
+<body>
+<h1>Tere tulemast e-poodi!</h1>
+
+<p>Meie poes on müügil [[${kogus}]] toodet.</p>
+<a href="Tooted">Näita tooteid</a>
+<a href="/form">Lisa tooteid juurde</a>
+<a href="/kontakt">Vaata kus asume</a>
+
+<p id="komm" style="display:none">Tüng!</p>
+
+<button type="button" onclick="document.getElementById('komm').style.display='block'">Vajuta siia, saad kommi!</button>
+</body>
+</html>
