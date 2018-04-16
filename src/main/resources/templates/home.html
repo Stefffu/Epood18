@@ -5,30 +5,41 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width = device-width, initial-scale = 1">
     <title>Koduleht</title>
+    <script type="text/javascript">
+        function contact(){
+            history.pushState({}, "", kontakt);
+            document.getElementById("contact").innerHTML = "Kirjutage meie meiliaadressile!"
+        }
+    </script>
     <link rel="stylesheet" type = "text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <!--link href="../static/css/Disain.css" rel="stylesheet" type="text/css"-->
+
+
 </head>
 <body>
 <div class="container">
-
     <div class="page-header">
-        <h1 align="center">Tere tulemast e-poodi!</h1>
+        <h1 align="center" class= "lang">Tere tulemast e-poodi!</h1>
     </div>
     <div class="jumbotron">
         <p><h2 align="center">Meie poes on müügil [[${kogus}]] toodet!</h2></p>
     </div>
+    <ul>
+        <li><a href="Tooted">Näita tooteid</a></li>
+        <li><a href="/form">Lisa tooteid juurde</a></li>
+        <li><a href="/kontakt">Vaata kus asume</a></li>
 
+        <p id="komm" style="display:none">Tüng!</p>
+
+        <button type="button" onclick="document.getElementById('komm').style.display='block'">Vajuta siia, saad kommi!</button>
+
+        <button onclick="contact()">Kontaktid</button>
+        <div id="kontakt"></div>
+
+    </ul>
 </div>
 
-<ul>
-    <li><a href="Tooted">Näita tooteid</a></li>
-    <li><a href="/form">Lisa tooteid juurde</a></li>
-    <li><a href="/kontakt">Vaata kus asume</a></li>
 
-    <p id="komm" style="display:none">Tüng!</p>
-
-    <button type="button" onclick="document.getElementById('komm').style.display='block'">Vajuta siia, saad kommi!</button>
-</ul>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
