@@ -9,15 +9,5 @@
 <form th:action="@{/logout}" method="post">
     <input type="submit" value="Logi välja"/>
 </form>
-<a href="#" onclick="signOut();">Sign out from google</a>
-<script src="https://apis.google.com/js/platform.js" async defer></script>
-<script>
-    function signOut() {
-        var auth2 = gapi.auth2.getAuthInstance();
-        auth2.signOut().then(function () {
-            console.log('User signed out.');
-        });
-    }
-</script>
 </body>
 </html>
