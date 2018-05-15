@@ -10,9 +10,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 
-import java.util.LinkedList;
-import java.util.List;
-
 @Configuration
 @EnableWebSecurity
 public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
@@ -20,7 +17,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/", "/home", "/kontakt").permitAll()
+                .antMatchers("/", "/home/*", "/kontakt", "/manifest.appcache", "/form.html", "/offline.html", "/static/js/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
